@@ -1,0 +1,19 @@
+.gradle
+build/
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+*.iml
+
+# Gradle:
+.idea/
+#.idea/gradle.xml
+#.idea/libraries
+
+# IntelliJ
+/out/

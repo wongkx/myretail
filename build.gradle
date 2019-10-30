@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'application'
+
+mainClassName = 'com.myretail.ServerRunner'
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src/main/groovy']
+        }
+    }
+}
+
+dependencies {
+    compile('org.codehaus.groovy:groovy-all:2.4.6')
+    compile("org.elasticsearch:elasticsearch:7.1.0")
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+    compile('org.elasticsearch.client:elasticsearch-rest-high-level-client:7.1.0')
+    compile("io.searchbox:jest:5.3.3")
+    compile("org.json:json:20190722")
+    compile('io.springfox:springfox-swagger2:2.9.2')
+    compile('io.springfox:springfox-swagger-ui:2.9.2')
+    testCompile("junit:junit")
+}
