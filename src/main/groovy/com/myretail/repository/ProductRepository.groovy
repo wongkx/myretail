@@ -1,15 +1,9 @@
 package com.myretail.repository
 
-import com.fasterxml.jackson.core.JsonFactory
-import com.fasterxml.jackson.databind.JsonNode
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonObject
+
 import com.myretail.domain.Product
-import groovy.json.JsonSlurper
-import org.apache.tomcat.util.json.JSONParser
-import org.elasticsearch.client.RestClient
+import org.json.JSONArray
+import org.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.http.HttpMethod
@@ -18,7 +12,6 @@ import org.springframework.stereotype.Component
 import org.springframework.web.client.RestTemplate
 import org.springframework.web.util.UriComponents
 import org.springframework.web.util.UriComponentsBuilder
-import org.json.*
 
 @Component
 class ProductRepository {

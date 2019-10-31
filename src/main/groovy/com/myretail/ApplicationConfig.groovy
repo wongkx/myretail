@@ -28,6 +28,12 @@ class ApplicationConfig {
     }
 
 //    @Bean
+//    ElasticsearchTemplate elasticsearchTemplate() {
+//        ElasticsearchTemplate elasticsearchTemplate = new ElasticsearchTemplate()
+//        return elasticsearchTemplate
+//    }
+
+//    @Bean
 //    public Client client() {
 //        TransportClient client = null
 //        try {

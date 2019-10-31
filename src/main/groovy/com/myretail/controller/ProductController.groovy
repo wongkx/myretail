@@ -6,6 +6,7 @@ import com.myretail.service.ProductService
 import com.myretail.view.ProductView
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
+import io.swagger.annotations.ApiParam
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -14,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
-
-import javax.validation.Valid
-import javax.validation.constraints.NotNull
 
 @RestController
 @RequestMapping("/api/v1")
@@ -34,15 +32,14 @@ public class ProductController {
         return new ResponseEntity<Product>(product, HttpStatus.OK)
     }
 
-    @ApiImplicitParams([@ApiImplicitParam(name = "productId", dataType = "string", paramType = "path", required = true)])
     @RequestMapping(value = "/products/{productId}", method = RequestMethod.PUT)
     public ResponseEntity<Product> updateProduct(
             @PathVariable("productId") String productId,
-            @RequestBody ProductView product) {
+            @ApiParam(name = "product", value = "product update", required = true) @RequestBody Product product) {
 
-//        if (product.id != productId) {
-//            throw new InvalidArgumentException("mismatching productId.")
-//        }
+        if (product.id != productId) {
+            throw new InvalidArgumentException("mismatching productId.")
+        }
         Product updatedProduct = productService.updateProduct(product)
         return new ResponseEntity<Product>(updatedProduct, HttpStatus.OK)
     }

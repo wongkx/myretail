@@ -35,6 +35,7 @@ dependencies {
     compile("org.elasticsearch:elasticsearch:7.1.0")
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+    compile('org.springframework.boot:spring-boot-starter-security')
     compile('org.elasticsearch.client:elasticsearch-rest-high-level-client:7.1.0')
     compile("io.searchbox:jest:5.3.3")
     compile("org.json:json:20190722")
