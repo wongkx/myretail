@@ -1,15 +1,12 @@
 package com.myretail.service
 
-
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.myretail.domain.Product
 import com.myretail.repository.ProductRepository
-import io.searchbox.client.JestClient
 import org.elasticsearch.action.search.SearchRequest
 import org.elasticsearch.action.search.SearchResponse
 import org.elasticsearch.action.update.UpdateRequest
 import org.elasticsearch.action.update.UpdateResponse
-import org.elasticsearch.client.Client
 import org.elasticsearch.client.RequestOptions
 import org.elasticsearch.client.RestHighLevelClient
 import org.elasticsearch.common.xcontent.XContentType
@@ -29,12 +26,6 @@ class ProductServiceImpl implements ProductService {
 
     @Autowired
     RestTemplate restTemplate
-
-    @Autowired
-    JestClient jestClient
-
-    @Autowired
-    Client client
 
     @Autowired
     ProductRepository productRepository

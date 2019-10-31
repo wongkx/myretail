@@ -56,3 +56,6 @@
      "currencyCode": "USD"
    }
     ```
+8. Unit tests:
+    * ProductControllerSpec
+    * ProductRepositorySpec

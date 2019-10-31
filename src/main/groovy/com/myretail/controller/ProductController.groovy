@@ -3,7 +3,6 @@ package com.myretail.controller
 import com.myretail.domain.Product
 import com.myretail.exception.InvalidArgumentException
 import com.myretail.service.ProductService
-import com.myretail.view.ProductView
 import io.swagger.annotations.ApiImplicitParam
 import io.swagger.annotations.ApiImplicitParams
 import io.swagger.annotations.ApiParam
@@ -38,7 +37,7 @@ public class ProductController {
             @ApiParam(name = "product", value = "product update", required = true) @RequestBody Product product) {
 
         if (product.id != productId) {
-            throw new InvalidArgumentException("mismatching productId.")
+            throw new InvalidArgumentException("Mismatching productIds")
         }
         Product updatedProduct = productService.updateProduct(product)
         return new ResponseEntity<Product>(updatedProduct, HttpStatus.OK)

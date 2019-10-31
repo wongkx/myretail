@@ -23,17 +23,17 @@ class ProductRepository {
     @Autowired
     RestTemplate restTemplate
 
-    public ProductRepository(RestTemplateBuilder restTemplateBuilder) {
-        restTemplate = restTemplateBuilder.rootUri(hostUrl).build()
-    }
+//    public ProductRepository(RestTemplateBuilder restTemplateBuilder) {
+//        restTemplate = restTemplateBuilder.rootUri(hostUrl).build()
+//    }
 
-    public getProduct(String productId) {
+    public Product getProduct(String productId) {
         Product product = new Product(id: productId)
         product.name = getProductName(productId)
         return product
     }
 
-    public getProductName(String productId) {
+    public String getProductName(String productId) {
         UriComponents uriComponents = UriComponentsBuilder.newInstance().scheme("https").host(hostUrl).path("/v2/pdp/tcin/${productId}/${urlParams}").build()
         ResponseEntity<String> response = restTemplate.exchange(uriComponents.toUriString(), HttpMethod.GET, null, String.class)
         JSONObject json = new JSONObject(response.getBody())

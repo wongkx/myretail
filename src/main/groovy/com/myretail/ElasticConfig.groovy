@@ -1,8 +1,6 @@
 package com.myretail
 
-import io.searchbox.client.JestClient
-import io.searchbox.client.JestClientFactory
-import io.searchbox.client.config.HttpClientConfig
+
 import org.apache.http.HttpHost
 import org.apache.http.client.config.RequestConfig
 import org.elasticsearch.client.RestClient
@@ -38,18 +36,5 @@ class ElasticConfig {
         )
 
         return client
-    }
-
-    @Bean
-    public JestClient jestClient() {
-        JestClientFactory factory = new JestClientFactory();
-        String serverUrl = "https://"+EsHost
-        factory.setHttpClientConfig(
-                new HttpClientConfig.Builder(serverUrl)
-                        .multiThreaded(true)
-                        .defaultMaxTotalConnectionPerRoute(2)
-                        .maxTotalConnection(10)
-                        .build());
-        return factory.getObject();
     }
 }
