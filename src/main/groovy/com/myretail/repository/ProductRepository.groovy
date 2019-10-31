@@ -5,7 +5,6 @@ import com.myretail.domain.Product
 import org.json.JSONArray
 import org.json.JSONObject
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.http.HttpMethod
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Component
@@ -22,10 +21,6 @@ class ProductRepository {
 
     @Autowired
     RestTemplate restTemplate
-
-//    public ProductRepository(RestTemplateBuilder restTemplateBuilder) {
-//        restTemplate = restTemplateBuilder.rootUri(hostUrl).build()
-//    }
 
     public Product getProduct(String productId) {
         Product product = new Product(id: productId)
